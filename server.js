@@ -29,10 +29,20 @@ app.set("view engine", "handlebars");
 
 // MongoDB
 mongoose.Promise = Promise;
-// MONGOLAB_ONYX_URI = mongodb://heroku_6bn2xz2b:''@ds117336.mlab.com:17336/heroku_6bn2xz2b
-var MONGODB_URI = process.env.MONGOLAB_ONYX_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI, {
-   
+
+// Database configuration with mongoose
+// mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
+//mongoose.connect("mongodb://localhost/mongoscraper");
+var db = mongoose.connection;
+
+// Show any mongoose errors
+db.on("error", function (error) {
+    console.log("Mongoose Error: ", error);
+});
+
+// Once logged in to the db through mongoose, log a success message
+db.once("open", function () {
+    console.log("Mongoose connection successful.");
 });
 
 //work on MVP
