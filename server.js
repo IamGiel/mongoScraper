@@ -52,6 +52,19 @@ db.once("open", function () {
 //work on saving data to mongodb using button on click
 //delete data using button on click
 
+// Routes ~=====~=====~======~®
+// root route to home
+app.get("/*", function (req, res) {
+
+    res.render("home");
+})
+
+// root route to home
+app.get("/saved", function (req, res) {
+
+    res.render("saved");
+})
+
 
 
 
