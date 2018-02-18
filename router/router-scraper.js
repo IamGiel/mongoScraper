@@ -1,6 +1,13 @@
 // Requiring Note and Article models
 var Notes = require("../models/Notes.js");
 var Article = require("../models/Articles.js");
+// var axios = require("axios");
+//This makes the scraping possible
+var request = require("request");
+var cheerio = require("cheerio");
+
+
+
 
 
 // Initialize Express
@@ -78,6 +85,7 @@ app.get("/articles", function (req, res) {
         }
     });
 });
+    
 
 // Grab an article by it's ObjectId
 app.get("/articles/:id", function (req, res) {

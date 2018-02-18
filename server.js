@@ -6,10 +6,6 @@ var logger = require("morgan");
 var path = require("path");
 var bodyParser = require("body-parser");
 
-//This makes the scraping possible
-var request = require("request");
-var cheerio = require("cheerio");
-
 
 
 // Set mongoose to leverage built in JavaScript ES6 Promises

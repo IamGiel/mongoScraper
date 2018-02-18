@@ -1,5 +1,6 @@
 //Handle Scrape button
 $("#scrape").on("click", function () {
+    console.log("selecting scraper id")
     $.ajax({
         method: "GET",
         url: "/scrape",
