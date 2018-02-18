@@ -27,12 +27,8 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-// MongoDB
-mongoose.Promise = Promise;
 
-// Database configuration with mongoose
-mongoose.connect("mongodb://localhost/mongoscraper");
-var db = mongoose.connection;
+
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
@@ -43,6 +39,9 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
     useMongoClient: true
 });
+
+// Database configuration with mongoose
+var db = mongoose.connection;
 
 // Show any mongoose errors
 db.on("error", function (error) {
