@@ -27,8 +27,12 @@ app.get("/", function (req, res) {
 
 // root route to home
 app.get("/saved", function (req, res) {
-
-    res.render("saved");
+    Article.find({ "saved": true }).populate("notes").exec(function (error, articles) {
+        var hbsObject = {
+            article: articles
+        };
+        res.render("saved", hbsObject);
+    });
 })
 
 // A GET request to scrape the website
