@@ -19,6 +19,7 @@ $(".navbar-nav li").click(function () {
 
 //Handle Save Article button
 $(".save").on("click", function () {
+    console.log("testing for response here >>>>>>");
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",

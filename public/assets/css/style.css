@@ -15,3 +15,7 @@ body {
 #scrape {
     margin: 8px 0px;
 }
+
+.jumbotron {
+    background-color: rgb(167, 110, 110);
+}
