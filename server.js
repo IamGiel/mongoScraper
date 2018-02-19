@@ -12,7 +12,7 @@ var bodyParser = require("body-parser");
 mongoose.Promise = Promise;
 
 //Define port
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 3000;
 
 
 // Initialize Express
@@ -64,9 +64,6 @@ require('./router/router-scraper.js')(app);
 //delete data using button on click
 
 
-
-
-// Listen on port 3000
-app.listen(4000, function () {
-    console.log("Nice! app is listening on ", port);
-});
+// port listens
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
