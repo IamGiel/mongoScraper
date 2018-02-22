@@ -5,6 +5,8 @@ var mongoose = require("mongoose");
 var logger = require("morgan");
 var path = require("path");
 var bodyParser = require("body-parser");
+var http = require('http');
+// var server = http.createServer(app);
 
 
 
@@ -12,8 +14,7 @@ var bodyParser = require("body-parser");
 mongoose.Promise = Promise;
 
 //Define port
-var port = process.env.PORT || 3000;
-
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -36,8 +37,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-});
+mongoose.connect(MONGODB_URI);
 
 // Database configuration with mongoose
 var db = mongoose.connection;
@@ -65,5 +65,6 @@ require('./router/router-scraper.js')(app);
 
 
 // port listens
-var port_number = server.listen(process.env.PORT || 3000);
-app.listen(port_number);
+app.listen(3000, function () {
+    console.log('Server running on port 3000')
+});
